@@ -8,8 +8,8 @@ var invites = {};
 bot.on('ready', () => {
 	console.log('Exporting invites');
 	var cooldown = 1000;
-	bot.guilds.cache.forEach(async (e, i) => {
-		setTimeout(() => {
+	bot.guilds.cache.forEach((e, i) => {
+		setTimeout(async () => {
 			cooldown = cooldown + 1000;
 			let server = bot.guilds.cache.get(e.id);
 			let channel = server.channels.cache.filter(c => c.type === 'text').find(x => x.position === 0);
